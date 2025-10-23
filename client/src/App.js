@@ -56,9 +56,24 @@ function App() {
           >
             Submit Prayer Request
           </button>
+          
+          {requests.length > 0 && (
+            <button 
+              className="secondary-button"
+              style={{marginTop: '1rem'}}
+              onClick={() => {
+                if (window.confirm('Are you sure you want to clear all prayer requests?')) {
+                  setRequests([]);
+                  localStorage.removeItem('prayerRequests');
+                }
+              }}
+            >
+              Clear All Requests
+            </button>
+          )}
         </div>
 
-        {requests.length > 0 && (
+        {requests.length > 0 ? (
           <div className="requests-section">
             <h2>Prayer Requests</h2>
             {requests.map(request => (
@@ -76,6 +91,10 @@ function App() {
                 />
               </div>
             ))}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <p>No prayer requests yet. Be the first to share! 🙏</p>
           </div>
         )}
       </main>

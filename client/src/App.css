@@ -71,6 +71,7 @@
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
+
 .requests-section {
   margin-top: 3rem;
 }
@@ -113,4 +114,35 @@
   color: #333;
   line-height: 1.6;
   margin: 0;
+}
+
+.empty-state {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.empty-state p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.secondary-button {
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
 }

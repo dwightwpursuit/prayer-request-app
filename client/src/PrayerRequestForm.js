@@ -36,7 +36,12 @@ function PrayerRequestForm({ onClose, onSubmit }) {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Your Prayer Request *</label>
+            <label>
+              Your Prayer Request * 
+              <span style={{float: 'right', color: '#999', fontWeight: 'normal'}}>
+                {requestText.length} characters
+              </span>
+            </label>
             <textarea
               value={requestText}
               onChange={(e) => setRequestText(e.target.value)}
