@@ -1,0 +1,116 @@
+.response-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #f0f0f0;
+  }
+  
+  .response-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .response-header h4 {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .respond-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .respond-button:hover {
+    background: #5568d3;
+    transform: translateY(-1px);
+  }
+  
+  .response-form {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .response-input,
+  .response-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.2s;
+  }
+  
+  .response-input:focus,
+  .response-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+  
+  .response-textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .submit-response-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .submit-response-button:hover {
+    background: #5568d3;
+  }
+  
+  .responses-list {
+    margin-top: 1rem;
+  }
+  
+  .response-item {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid #667eea;
+  }
+  
+  .response-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .response-name {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 0.9rem;
+  }
+  
+  .response-date {
+    color: #999;
+    font-size: 0.85rem;
+  }
+  
+  .response-text {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+  }

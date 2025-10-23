@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import PrayerRequestForm from './PrayerRequestForm';
+import ResponseSection from './ResponseSection';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -9,6 +10,18 @@ function App() {
   const handleSubmitRequest = (newRequest) => {
     setRequests([newRequest, ...requests]);
     setShowForm(false);
+  };
+
+  const handleAddResponse = (requestId, newResponse) => {
+    setRequests(requests.map(request => {
+      if (request.id === requestId) {
+        return {
+          ...request,
+          responses: [...request.responses, newResponse]
+        };
+      }
+      return request;
+    }));
   };
 
   return (
@@ -40,6 +53,12 @@ function App() {
                   <span className="request-date">{request.date}</span>
                 </div>
                 <p className="request-text">{request.text}</p>
+                
+                <ResponseSection 
+                  requestId={request.id}
+                  responses={request.responses}
+                  onAddResponse={handleAddResponse}
+                />
               </div>
             ))}
           </div>
