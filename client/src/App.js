@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import PrayerRequestForm from './PrayerRequestForm';
 import ResponseSection from './ResponseSection';
@@ -6,6 +6,21 @@ import ResponseSection from './ResponseSection';
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [requests, setRequests] = useState([]);
+
+  // Load saved requests when app starts
+  useEffect(() => {
+    const savedRequests = localStorage.getItem('prayerRequests');
+    if (savedRequests) {
+      setRequests(JSON.parse(savedRequests));
+    }
+  }, []);
+
+  // Save requests whenever they change
+  useEffect(() => {
+    if (requests.length > 0) {
+      localStorage.setItem('prayerRequests', JSON.stringify(requests));
+    }
+  }, [requests]);
 
   const handleSubmitRequest = (newRequest) => {
     setRequests([newRequest, ...requests]);
