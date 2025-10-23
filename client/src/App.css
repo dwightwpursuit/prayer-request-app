@@ -71,3 +71,46 @@
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
+.requests-section {
+  margin-top: 3rem;
+}
+
+.requests-section h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.request-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.request-name {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.request-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.request-text {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
