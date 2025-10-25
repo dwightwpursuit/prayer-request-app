@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import PrayerRequestForm from './PrayerRequestForm';
 import PrayerCard from './PrayerCard';
+import Toast from './Toast';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [requests, setRequests] = useState([]);
+  const [toastMessage, setToastMessage] = useState('');
 
   // Load saved requests when app starts
   useEffect(() => {
@@ -25,6 +27,7 @@ function App() {
   const handleSubmitRequest = (newRequest) => {
     setRequests([newRequest, ...requests]);
     setShowForm(false);
+    setToastMessage('Your request has been received—thank you for sharing. Your prayer is now visible to the community.');
   };
 
   const handleAddResponse = (requestId, newResponse) => {
@@ -37,6 +40,7 @@ function App() {
       }
       return request;
     }));
+    setToastMessage('Thank you for supporting this prayer. Your encouragement matters.');
   };
 
   return (
@@ -97,6 +101,13 @@ function App() {
         <PrayerRequestForm 
           onClose={() => setShowForm(false)}
           onSubmit={handleSubmitRequest}
+        />
+      )}
+
+      {toastMessage && (
+        <Toast 
+          message={toastMessage}
+          onClose={() => setToastMessage('')}
         />
       )}
     </div>
