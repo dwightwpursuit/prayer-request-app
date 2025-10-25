@@ -80,7 +80,14 @@ function App() {
             {requests.map(request => (
               <div key={request.id} className="request-card">
                 <div className="request-header">
-                  <span className="request-name">{request.name}</span>
+                  <div className="request-name-wrapper">
+                    <span className="request-name">{request.name}</span>
+                    {request.responses.length > 0 && (
+                      <span className="request-badge has-responses">
+                        {request.responses.length} {request.responses.length === 1 ? 'response' : 'responses'}
+                      </span>
+                    )}
+                  </div>
                   <span className="request-date">{formatDate(request.date)}</span>
                 </div>
                 <p className="request-text">{request.text}</p>

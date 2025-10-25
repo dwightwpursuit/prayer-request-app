@@ -146,3 +146,34 @@
   background: #e0e0e0;
   transform: translateY(-2px);
 }
+
+.request-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.request-badge.has-responses {
+  background: #48bb78;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.request-name-wrapper {
+  display: flex;
+  align-items: center;
+}
