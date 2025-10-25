@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import PrayerRequestForm from './PrayerRequestForm';
 import ResponseSection from './ResponseSection';
+import { formatDate } from './utils';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -80,7 +81,7 @@ function App() {
               <div key={request.id} className="request-card">
                 <div className="request-header">
                   <span className="request-name">{request.name}</span>
-                  <span className="request-date">{request.date}</span>
+                  <span className="request-date">{formatDate(request.date)}</span>
                 </div>
                 <p className="request-text">{request.text}</p>
                 

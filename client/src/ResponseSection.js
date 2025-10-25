@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ResponseSection.css';
+import { formatDate } from './utils';
 
 function ResponseSection({ requestId, responses, onAddResponse }) {
   const [showForm, setShowForm] = useState(false);
@@ -14,7 +15,7 @@ function ResponseSection({ requestId, responses, onAddResponse }) {
         id: Date.now(),
         text: responseText,
         name: responderName || 'Anonymous',
-        date: new Date().toLocaleDateString()
+        date: new Date().toISOString()
       };
       
       onAddResponse(requestId, newResponse);
@@ -65,7 +66,7 @@ function ResponseSection({ requestId, responses, onAddResponse }) {
             <div key={response.id} className="response-item">
               <div className="response-item-header">
                 <span className="response-name">{response.name}</span>
-                <span className="response-date">{response.date}</span>
+                <span className="response-date">{formatDate(response.date)}</span>
               </div>
               <p className="response-text">{response.text}</p>
             </div>

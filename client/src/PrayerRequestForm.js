@@ -15,7 +15,7 @@ function PrayerRequestForm({ onClose, onSubmit }) {
         text: requestText,
         isAnonymous: isAnonymous,
         name: isAnonymous ? 'Anonymous' : name || 'Anonymous',
-        date: new Date().toLocaleDateString(),
+        date: new Date().toISOString(),
         responses: []
       };
       
