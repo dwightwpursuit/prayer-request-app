@@ -29,7 +29,7 @@
 }
 
 .main-content {
-  max-width: 800px;
+  max-width: 1400px;
   margin: 3rem auto;
   padding: 0 1rem;
 }
@@ -176,4 +176,29 @@
 .request-name-wrapper {
   display: flex;
   align-items: center;
+}
+
+.prayer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1400px) {
+  .prayer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .prayer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .prayer-grid {
+    grid-template-columns: 1fr;
+  }
 }

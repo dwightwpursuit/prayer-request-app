@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import PrayerRequestForm from './PrayerRequestForm';
-import ResponseSection from './ResponseSection';
-import { formatDate } from './utils';
+import PrayerCard from './PrayerCard';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -77,28 +76,15 @@ function App() {
         {requests.length > 0 ? (
           <div className="requests-section">
             <h2>Prayer Requests</h2>
-            {requests.map(request => (
-              <div key={request.id} className="request-card">
-                <div className="request-header">
-                  <div className="request-name-wrapper">
-                    <span className="request-name">{request.name}</span>
-                    {request.responses.length > 0 && (
-                      <span className="request-badge has-responses">
-                        {request.responses.length} {request.responses.length === 1 ? 'response' : 'responses'}
-                      </span>
-                    )}
-                  </div>
-                  <span className="request-date">{formatDate(request.date)}</span>
-                </div>
-                <p className="request-text">{request.text}</p>
-                
-                <ResponseSection 
-                  requestId={request.id}
-                  responses={request.responses}
+            <div className="prayer-grid">
+              {requests.map(request => (
+                <PrayerCard
+                  key={request.id}
+                  request={request}
                   onAddResponse={handleAddResponse}
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         ) : (
           <div className="empty-state">

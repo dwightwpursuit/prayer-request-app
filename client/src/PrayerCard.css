@@ -1,0 +1,232 @@
+/* FRONT CARD (Grid View) */
+.prayer-card-container {
+    height: 320px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .prayer-card-front {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .prayer-card-front:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Card Header */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    border-bottom: 2px solid #f0f0f0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  .card-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .card-date {
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+  
+  /* Front Card Content */
+  .card-content {
+    padding: 1.5rem;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .card-preview {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  /* Card Footer */
+  .card-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-stats {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-badge {
+    background: #48bb78;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .card-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  
+  .card-button:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+  
+  /* MODAL OVERLAY */
+  .card-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .card-modal-content {
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    animation: slideUp 0.3s ease;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* EXPANDED BACK VIEW */
+  .prayer-card-back-expanded {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow: hidden;
+  }
+  
+  .back-button {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .back-button:hover {
+    background: #f0f0f0;
+  }
+  
+  .card-content-full {
+    padding: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .card-full-text {
+    color: #333;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    white-space: pre-wrap;
+  }
+  
+  .card-date-full {
+    color: #999;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  
+  .card-responses {
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .prayer-card-container {
+      height: 280px;
+    }
+    
+    .card-header {
+      padding: 1rem;
+    }
+    
+    .card-name {
+      font-size: 1rem;
+    }
+    
+    .card-content {
+      padding: 1rem;
+    }
+    
+    .card-preview {
+      font-size: 0.95rem;
+    }
+  
+    .card-modal-content {
+      max-width: 95%;
+    }
+  
+    .card-content-full {
+      padding: 1.5rem;
+    }
+  
+    .card-full-text {
+      font-size: 1rem;
+    }
+  
+    .card-responses {
+      padding: 1.5rem;
+    }
+  }
