@@ -8,6 +8,7 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [requests, setRequests] = useState([]);
   const [toastMessage, setToastMessage] = useState('');
+  const [showPastorChat, setShowPastorChat] = useState(false);
 
   // Load saved requests when app starts
   useEffect(() => {
@@ -43,12 +44,33 @@ function App() {
     setToastMessage('Thank you for supporting this prayer. Your encouragement matters.');
   };
 
+  const handleViewRequest = (requestId) => {
+    setRequests(requests.map(request => {
+      if (request.id === requestId) {
+        return {
+          ...request,
+          views: (request.views || 0) + 1
+        };
+      }
+      return request;
+    }));
+  };
+
+  const handlePastorChat = () => {
+    setShowPastorChat(true);
+  };
+
   return (
     <div className="App">
       <header className="app-header">
         <h1>🙏 Prayer Requests</h1>
         <p>A safe space to share and support</p>
       </header>
+
+      {/* Pastor Chat Button - Fixed Position */}
+      <button className="pastor-chat-button" onClick={handlePastorChat}>
+        💬 Chat with a Pastor
+      </button>
 
       <main className="main-content">
         <div className="welcome-section">
@@ -86,6 +108,7 @@ function App() {
                   key={request.id}
                   request={request}
                   onAddResponse={handleAddResponse}
+                  onView={handleViewRequest}
                 />
               ))}
             </div>
@@ -109,6 +132,42 @@ function App() {
           message={toastMessage}
           onClose={() => setToastMessage('')}
         />
+      )}
+
+      {/* Pastor Chat Modal */}
+      {showPastorChat && (
+        <div className="modal-overlay" onClick={() => setShowPastorChat(false)}>
+          <div className="pastor-chat-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>💬 Chat with a Pastor</h2>
+              <button className="close-button" onClick={() => setShowPastorChat(false)}>✕</button>
+            </div>
+            <div className="pastor-chat-content">
+              <div className="pastor-info">
+               <div className="pastor-avatar">🧑‍💼</div>
+                <div>
+                  <h3>Pastor Support Available</h3>
+                  <p className="online-status">🟢 Online 24/7</p>
+                </div>
+              </div>
+              <div className="chat-description">
+                <p>Connect with a caring pastor for:</p>
+                <ul>
+                  <li>🙏 Prayer support and guidance</li>
+                  <li>💬 Confidential spiritual counseling</li>
+                  <li>❤️ Emotional and mental wellness support</li>
+                  <li>📖 Biblical encouragement</li>
+                </ul>
+              </div>
+              <button className="primary-button" style={{width: '100%', marginTop: '1rem'}}>
+                Start Chat Now
+              </button>
+              <p className="chat-disclaimer">
+                * This is a demo feature. In production, this would connect to live pastoral support.
+              </p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

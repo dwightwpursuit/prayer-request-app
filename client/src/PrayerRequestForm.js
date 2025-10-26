@@ -5,6 +5,7 @@ function PrayerRequestForm({ onClose, onSubmit }) {
   const [requestText, setRequestText] = useState('');
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,17 +13,20 @@ function PrayerRequestForm({ onClose, onSubmit }) {
     if (requestText.trim()) {
       const newRequest = {
         id: Date.now(),
+        title: title.trim() || 'Prayer Request',
         text: requestText,
         isAnonymous: isAnonymous,
         name: isAnonymous ? 'Anonymous' : name || 'Anonymous',
         date: new Date().toISOString(),
-        responses: []
+        responses: [],
+        views: 0
       };
       
       onSubmit(newRequest);
       setRequestText('');
       setName('');
       setIsAnonymous(false);
+      setTitle('');
     }
   };
 
@@ -35,6 +39,17 @@ function PrayerRequestForm({ onClose, onSubmit }) {
         </div>
 
         <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Title (optional)</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Give your prayer request a brief title..."
+              maxLength="60"
+            />
+          </div>
+
           <div className="form-group">
             <label>
               Your Prayer Request * 

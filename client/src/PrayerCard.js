@@ -3,26 +3,31 @@ import './PrayerCard.css';
 import { formatDate } from './utils';
 import ResponseSection from './ResponseSection';
 
-function PrayerCard({ request, onAddResponse }) {
+function PrayerCard({ request, onAddResponse, onView }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
+    if (!isFlipped) {
+      onView(request.id);
+    }
   };
 
-  // Get preview of text (first 100 characters)
   const previewText = request.text.length > 100 
     ? request.text.substring(0, 100) + '...' 
     : request.text;
 
   return (
     <>
-      {/* FRONT CARD IN GRID */}
       <div className="prayer-card-container">
         <div className="prayer-card-front">
           <div className="card-header">
             <span className="card-name">{request.name}</span>
             <span className="card-date">{formatDate(request.date)}</span>
+          </div>
+          
+          <div className="card-title-section">
+            <h3 className="card-title">{request.title}</h3>
           </div>
           
           <div className="card-content">
@@ -31,6 +36,7 @@ function PrayerCard({ request, onAddResponse }) {
           
           <div className="card-footer">
             <div className="card-stats">
+              <span className="view-count">Viewed: {request.views || 0}</span>
               {request.responses.length > 0 && (
                 <span className="card-badge">
                   💬 {request.responses.length} {request.responses.length === 1 ? 'response' : 'responses'}
@@ -44,13 +50,15 @@ function PrayerCard({ request, onAddResponse }) {
         </div>
       </div>
 
-      {/* EXPANDED MODAL VIEW */}
       {isFlipped && (
         <div className="card-modal-overlay" onClick={handleFlip}>
           <div className="card-modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="prayer-card-back-expanded">
               <div className="card-header">
-                <span className="card-name">{request.name}</span>
+                <div>
+                  <h2 className="modal-title">{request.title}</h2>
+                  <span className="card-name">{request.name}</span>
+                </div>
                 <button className="back-button" onClick={handleFlip}>
                   ✕ Close
                 </button>

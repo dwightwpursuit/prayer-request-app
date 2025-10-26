@@ -42,9 +42,23 @@
     opacity: 0.9;
   }
   
+  /* Title Section */
+  .card-title-section {
+    padding: 1rem 1.25rem 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .card-title {
+    color: #333;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
   /* Front Card Content */
   .card-content {
-    padding: 1.5rem;
+    padding: 1rem 1.25rem;
     flex: 1;
     overflow: hidden;
   }
@@ -68,6 +82,14 @@
   .card-stats {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* View Count */
+  .view-count {
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
   
   .card-badge {
@@ -149,6 +171,20 @@
     flex-direction: column;
     max-height: 90vh;
     overflow: hidden;
+  }
+  
+  .card-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  /* Modal Title */
+  .modal-title {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
   }
   
   .back-button {
