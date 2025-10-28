@@ -1,116 +1,247 @@
 .response-section {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 2px solid #f0f0f0;
-  }
-  
-  .response-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .response-header h4 {
-    color: #666;
-    font-size: 1rem;
-    margin: 0;
-  }
-  
-  .respond-button {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .respond-button:hover {
-    background: #5568d3;
-    transform: translateY(-1px);
-  }
-  
-  .response-form {
-    background: #f9f9f9;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.response-header h4 {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.respond-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.respond-button:hover {
+  background: #5568d3;
+  transform: translateY(-1px);
+}
+
+/* AI Suggestions */
+.ai-suggestions {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ai-header {
+  margin-bottom: 1rem;
+}
+
+.ai-badge {
+  background: #667eea;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ai-description {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0.75rem 0 0 0;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.suggestion-card {
+  background: white;
+  border: 2px solid #e0e7ff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.suggestion-card:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+  transform: translateX(5px);
+  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+}
+
+.suggestion-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.suggestion-text {
+  color: #333;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.write-own-button {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  font-weight: 600;
+}
+
+.write-own-button:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Response Form */
+.response-form {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.response-input,
+.response-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+
+.response-input:focus,
+.response-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.response-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.response-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.show-suggestions-button {
+  background: #e0e7ff;
+  color: #667eea;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.show-suggestions-button:hover {
+  background: #d0d9ff;
+}
+
+.submit-response-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-response-button:hover {
+  background: #5568d3;
+}
+
+/* Responses List */
+.responses-list {
+  margin-top: 1rem;
+}
+
+.response-item {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid #667eea;
+}
+
+.response-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.response-name {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.response-date {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.response-text {
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ai-suggestions {
     padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
   }
-  
-  .response-input,
-  .response-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-family: inherit;
-    margin-bottom: 0.75rem;
-    transition: border-color 0.2s;
+
+  .suggestion-card {
+    padding: 0.85rem;
   }
-  
-  .response-input:focus,
-  .response-textarea:focus {
-    outline: none;
-    border-color: #667eea;
+
+  .response-form-actions {
+    flex-direction: column;
   }
-  
-  .response-textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-  
+
+  .show-suggestions-button,
   .submit-response-button {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.25rem;
-    font-size: 0.95rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
+    width: 100%;
   }
-  
-  .submit-response-button:hover {
-    background: #5568d3;
-  }
-  
-  .responses-list {
-    margin-top: 1rem;
-  }
-  
-  .response-item {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 0.75rem;
-    border-left: 3px solid #667eea;
-  }
-  
-  .response-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .response-name {
-    font-weight: 600;
-    color: #667eea;
-    font-size: 0.9rem;
-  }
-  
-  .response-date {
-    color: #999;
-    font-size: 0.85rem;
-  }
-  
-  .response-text {
-    color: #555;
-    line-height: 1.5;
-    margin: 0;
-    font-size: 0.95rem;
-  }
+}

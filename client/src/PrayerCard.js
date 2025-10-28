@@ -70,10 +70,11 @@ function PrayerCard({ request, onAddResponse, onView }) {
               </div>
               
               <div className="card-responses">
-                <ResponseSection 
+              <ResponseSection 
                   requestId={request.id}
                   responses={request.responses}
                   onAddResponse={onAddResponse}
+                  prayerText={request.text}
                 />
               </div>
             </div>
